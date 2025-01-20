@@ -1,0 +1,168 @@
+:root {
+    --primary-color: black;
+    --secondary-color: white;
+}
+
+
+
+/* Navbar Styles */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.884);
+    padding: 0.5rem 1rem;
+    margin: 5px;
+    border-radius: 10px;
+    position: fixed;
+    width: 100%;
+    border: 1px solid rgb(31, 31, 31);
+  }
+  
+  .brand-title {
+    font-size: 1.5rem;
+    color: white;
+    font-weight: 700;
+  }
+  
+  .navbar-links {
+    display: flex;
+  }
+  
+  .navbar-links ul {
+    display: flex;
+    list-style: none;
+  }
+  
+  .navbar-links li {
+    margin: 0 1rem;
+  }
+  
+  .navbar-links a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s;
+  }
+  
+  .navbar-links a:hover {
+    color: #00bcd4;
+  }
+  
+  /* Toggle Button Styles */
+  .toggle-button {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  
+  .toggle-button .bar {
+    width: 20px;
+    height: 2px;
+    background-color: white;
+    margin: 3px 0;
+  }
+
+  .nav-button button {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid var(--primary-color);
+    background-color: #08d;
+    color: var(--secondary-color);
+    font-weight: 600;
+  }
+
+  .nav-button button:hover {
+    background-color: #06b;
+  }
+
+  .dropdown {
+    background-color: rgb(20, 20, 20);
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .dropdown-content {
+    display: none;
+    background-color: var(--primary-color);
+    position: absolute;
+    top: 50px;
+    z-index: 999;
+    border-radius: 10px;
+  }
+
+  .dropdown-content ul {
+    display: block;
+  }
+
+  .mobile-book-button {
+    display: none;
+  }
+
+  .dropdown-content ul li {
+    padding: 10px;
+  }
+
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .brand-title {
+      font-size: 0.8rem;
+    }
+    .mobile-book-button {
+      display: block;
+      position: absolute;
+      left: 70%;
+    }
+
+    .mobile-book-button button {
+      padding: 5px;
+      font-size: 0.5rem;
+      border-radius: 5px;
+      border: 1px solid var(--primary-color);
+      background-color: #08d;
+      color: var(--secondary-color);
+      font-weight: 600;
+    }
+
+    .toggle-button {
+      display: flex;
+      position: absolute;
+      left: 90%;
+    }
+  
+    .nav-button {
+        display: none;
+    }
+    .navbar-links {
+      display: none;
+      flex-direction: column;
+      width: 95%;
+      background-color: var(--primary-color);
+      position: absolute;
+      top: 40px;
+      left: 0;
+      margin: 0 8px;
+      text-align: center;
+      border-radius: 10px;
+      z-index: 999;
+    }
+  
+    .navbar-links.active {
+      display: flex;
+    }
+  
+    .navbar-links ul {
+      flex-direction: column;
+      width: 100%;
+    }
+  
+    .navbar-links li {
+      margin: 1rem 0;
+    }
+
+    .dropdown-content {
+        top: 150px;
+        width: 100%;
+        border-radius: 10px;
+    }
+  }
