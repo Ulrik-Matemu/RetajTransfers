@@ -6,6 +6,18 @@
 
 
 /* Navbar Styles */
+@media (max-width: 768px) {
+  .navbar {
+    width: 96%;
+  }
+}
+
+@media (min-width: 769px) {
+  .navbar {
+    width: 100%;
+  }
+}
+
 
 .navbar {
     display: flex;
@@ -16,7 +28,6 @@
     margin: 5px;
     border-radius: 10px;
     position: fixed;
-    width: 100%;
     border: 1px solid rgb(31, 31, 31);
     z-index: 9999;
   }
