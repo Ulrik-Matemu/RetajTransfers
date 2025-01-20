@@ -18,6 +18,7 @@
     position: fixed;
     width: 100%;
     border: 1px solid rgb(31, 31, 31);
+    z-index: 9999;
   }
   
   .brand-title {
@@ -105,18 +106,21 @@
 
   /* Responsive Styles */
   @media (max-width: 768px) {
+    nav {
+      height: 60px;
+    } 
     .brand-title {
-      font-size: 0.8rem;
+      font-size: 1rem;
     }
     .mobile-book-button {
       display: block;
       position: absolute;
-      left: 70%;
+      left: 60%;
     }
 
     .mobile-book-button button {
       padding: 5px;
-      font-size: 0.5rem;
+      font-size: 0.8rem;
       border-radius: 5px;
       border: 1px solid var(--primary-color);
       background-color: #08d;

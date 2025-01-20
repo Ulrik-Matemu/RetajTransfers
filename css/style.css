@@ -142,6 +142,7 @@
     text-align: center;
     margin: 0 120px;
     color: var(--secondary-color);
+    z-index: 1;
 }
 
 .hero-details h1 {
