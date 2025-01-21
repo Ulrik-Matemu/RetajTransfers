@@ -317,7 +317,7 @@
 
 .footer {
   position: relative;
-  bottom: -1100px;
+  bottom: -1500px;
   background-color: black;
   padding-bottom: 100px;
   border-top-left-radius: 25px;
@@ -410,5 +410,67 @@
     position: absolute;
     left: 40%;
     font-size: 12px;
+  }
+}
+
+.why {
+  position: absolute;
+  top: 1000px;
+  text-align: center;
+  padding: 100px 120px;
+}
+
+.why h2 {
+  font-size: 40px;
+  padding: 20px 0;
+  font-weight: 800;
+}
+
+.why p {
+  font-size: 22px;
+  text-align: justify;
+  padding: 20px 0;
+}
+
+.underline {
+  display: flex;
+  justify-content: center;
+}
+
+.underline div {
+  width: 150px;
+  height: 5px;
+  background-color: black;
+}
+
+@media (max-width: 768px) {
+  .why {
+    top: 1400px;
+    padding: 50px 25px;
+  }
+
+  .footer {
+    top: 1600px;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .footer {
+    top: 1700px;
+  }
+}
+
+@media (max-width: 320px) {
+  .footer {
+    top: 1800px;
+  }
+}
+
+@media (max-width: 600px) and (min-width: 361px) {
+  .why {
+    top: 1600px;
+  }
+  .footer {
+    top: 1700px;
   }
 }
