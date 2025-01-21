@@ -84,6 +84,11 @@
     font-weight: 600;
   }
 
+  .nav-button button a {
+    text-decoration: none;
+    color: white;
+  }
+
   .nav-button button:hover {
     background-color: #06b;
   }
