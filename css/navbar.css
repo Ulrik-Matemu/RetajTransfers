@@ -154,7 +154,10 @@
         display: none;
     }
     .navbar-links {
-      display: none;
+      visibility: hidden;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, visibility 0.5s;
       flex-direction: column;
       width: 95%;
       background-color: var(--primary-color);
@@ -165,11 +168,16 @@
       text-align: center;
       border-radius: 10px;
       z-index: 999;
-    }
+      max-height: 0;
+  }
   
-    .navbar-links.active {
-      display: flex;
-    }
+  .navbar-links.active {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0);
+      max-height: 500px; /* Adjust this value based on the content height */
+  }
+  
   
     .navbar-links ul {
       flex-direction: column;

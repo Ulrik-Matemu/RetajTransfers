@@ -440,7 +440,7 @@
 .underline div {
   width: 150px;
   height: 5px;
-  background-color: black;
+  background-color: #ffcd29;
 }
 
 @media (max-width: 768px) {
