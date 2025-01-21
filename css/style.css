@@ -168,6 +168,8 @@
     opacity: 1;
     filter: brightness(0.5);
     height: 600px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
 }
 
 .hero-details {
