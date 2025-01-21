@@ -233,7 +233,7 @@
 
 .vehicle-types {
   position: absolute;
-  top: 650px;
+  top: 680px;
 }
 
 .vehicle-types h2 {
@@ -289,7 +289,7 @@
   }
 }
 
-@media (min-width: 370px) {
+@media (min-width: 370px) and (max-width: 768px) {
   .vehicle-types {
     top: 800px;
   }
