@@ -220,8 +220,8 @@
     .mobile-hero-img {
         display: block;
         width: 100%;
-        border-bottom-left-radius: 15px;
-        border-bottom-right-radius: 15px;
+        border-bottom-left-radius: 25px;
+        border-bottom-right-radius: 25px;
     }
 }
 
