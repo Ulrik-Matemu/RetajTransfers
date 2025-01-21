@@ -274,8 +274,10 @@
    display: block;
   }
   .vehicle-container {
-    display: block;
-    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0 10px 0 0px;
+    gap: 5px;
   }
   .vehicle {
     width: 100%;
