@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,10 +8,16 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/navbar.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 </head>
+
 <body>
   <nav class="navbar">
     <div class="brand-title">Retaj Transfers</div>
@@ -24,7 +31,8 @@
       <ul>
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
-        <li><a class="dropdown" id="dropdown" href="#" onclick="displayDropdown()">Packages <i class="fa fa-angle-down"></i></a>
+        <li><a class="dropdown" id="dropdown" href="#" onclick="displayDropdown()">Packages <i
+              class="fa fa-angle-down"></i></a>
           <div class="dropdown-content" id="dropdown-content">
             <ul>
               <li><a href="">Package 1</a></li>
@@ -39,7 +47,7 @@
       </ul>
     </div>
     <div class="nav-button">
-      <button onclick="toggleForm()">BOOK NOW</button>
+      <button onclick="toggleForm()"><a href="#formContainer">BOOK NOW</a></button>
     </div>
   </nav>
 
@@ -49,60 +57,95 @@
     <img src="hero-mobile.jpg" class="mobile-hero-img">
     <div class="hero-details">
       <h1>Lets Book Your Umrah Taxi Instantly</h1>
-    <p>Experience seamless and convenient Umrah pilgrimage with our top-notch Umrah Taxi Service. We offer reliable transportation, experienced drivers, and exceptional customer service to ensure a worry-free journey.</p>
-    <button onclick="toggleForm()">GET QUOTE</button>
+      <p>Experience seamless and convenient Umrah pilgrimage with our top-notch Umrah Taxi Service. We offer reliable
+        transportation, experienced drivers, and exceptional customer service to ensure a worry-free journey.</p>
+      <button onclick="toggleForm()">GET QUOTE</button>
+    </div>
+  </section>
+  <section class="vehicle-types">
+    <h2>Pick your desired ride</h2>
+    <div class="vehicle-container">
+      <div class="vehicle">
+        <img src="img/Camry-p-300x141 (1).webp" alt="">
+        <h3>Sedan</h3>
+        <p><i style="color: white;" class='fas fa-user-alt'></i> 4</p>
+      </div>
+      <div class="vehicle">
+        <img src="img/staria-300x200.webp" alt="">
+        <h3>Hyundai Staria</h3>
+        <p><i style="color: white;" class='fas fa-user-alt'></i> 7</p>
+      </div>
+      <div class="vehicle">
+        <img src="img/GMC-Yukon-2024-Umrah-Taxi-Service-300x163.webp" alt="">
+        <h3>GMC - 2024</h3>
+        <p><i style="color: white;" class='fas fa-user-alt'></i> 7</p>
+      </div>
+      <div class="vehicle">
+        <img src="img/Toyota-HiAce-300x178.webp" alt="">
+        <h3>Toyota HIACE</h3>
+        <p><i style="color: white;" class='fas fa-user-alt'></i> 11</p>
+      </div>
+      <div class="vehicle">
+        <img src="img/coaster-300x188.webp" alt="">
+        <h3>Coaster Saloon</h3>
+        <p><i style="color: white;" class='fas fa-user-alt'></i> 15</p>
+      </div>
     </div>
   </section>
 
 
+
+
   <div class="form-container" id="formContainer">
     <div class="form">
-        <button class="close-form-button" onclick="toggleForm()">X</button>
-        <div class="title">Get Quote</div>
-        <div class="input-container ic1">
-            <input id="firstname" class="input" type="text" placeholder=" " />
-            <div class="cut"></div>
-            <label for="firstname" class="placeholder">Full name</label>
-        </div>
-        <div class="input-container ic2">
-            <input id="lastname" class="input" type="text" placeholder=" " />
-            <div class="cut"></div>
-            <label for="lastname" class="placeholder">Country</label>
-        </div>
-        <div class="input-container ic2">
-            <input id="phone" class="input" type="text" placeholder=" " />
-            <div class="cut cut-short"></div>
-            <label for="phone" class="placeholder">Phone Number</label>
-        </div>
-        <div class="input-container ic2">
-            <input id="pickup" class="input" type="text" placeholder=" " />
-            <div class="cut cut-short"></div>
-            <label for="pickup" class="placeholder">Pickup location</label>
-        </div>
-        <div>
-            <button type="text" class="submit">SUBMIT</button>
-        </div>
+      <button class="close-form-button" onclick="toggleForm()">X</button>
+      <div class="title">Get Quote</div>
+      <div class="input-container ic1">
+        <input id="firstname" class="input" type="text" placeholder=" " />
+        <div class="cut"></div>
+        <label for="firstname" class="placeholder">Full name</label>
+      </div>
+      <div class="input-container ic2">
+        <input id="lastname" class="input" type="text" placeholder=" " />
+        <div class="cut"></div>
+        <label for="lastname" class="placeholder">Country</label>
+      </div>
+      <div class="input-container ic2">
+        <input id="phone" class="input" type="tel" placeholder=" " />
+        <div class="cut cut-short"></div>
+        <label for="phone" class="placeholder">Phone Number</label>
+      </div>
+      <div class="input-container ic2">
+        <input id="pickup" class="input" type="text" placeholder=" " />
+        <div class="cut cut-short"></div>
+        <label for="pickup" class="placeholder">Pickup location</label>
+      </div>
+      <div>
+        <button type="text" class="submit">SUBMIT</button>
+      </div>
     </div>
-</div>
-  
 
-  <script>
-    function toggleMenu() {
-      const navbarLinks = document.querySelector('.navbar-links');
-      navbarLinks.classList.toggle('active');
-    }
-  </script>
-  <script>
-    function toggleForm() {
+
+
+
+    <script>
+      function toggleMenu() {
+        const navbarLinks = document.querySelector('.navbar-links');
+        navbarLinks.classList.toggle('active');
+      }
+    </script>
+    <script>
+      function toggleForm() {
         var formContainer = document.getElementById('formContainer');
         if (formContainer.style.display === 'none' || formContainer.style.display === '') {
-            formContainer.style.display = 'block';
+          formContainer.style.display = 'block';
         } else {
-            formContainer.style.display = 'none';
+          formContainer.style.display = 'none';
         }
-    }
-</script>
-  <script src="js/dropdown.js">
-  </script>
+      }
+    </script>
+    <script src="js/dropdown.js">
+    </script>
 </body>
+
 </html>
