@@ -67,29 +67,39 @@
       <div class="vehicle-cards">
         <div id="card-container">
           <div class="v-card">
-            <img src="img/Camry-p-300x141 (1).webp" alt="">
+            <div>
+              <img src="img/Camry-p-300x141 (1).webp" alt="">
+            </div>
             <h3>Sedan</h3>
-            <p><i style="color: white;" class='fas fa-user-alt'></i> 4 <i class="fas fa-briefcase"></i> 3</p>
+            <p><i  class='fas fa-user-alt'></i> 4 <i class="fas fa-briefcase"></i> 3</p>
           </div>
           <div class="v-card">
-            <img src="img/staria-300x200.webp" alt="">
+            <div>
+              <img src="img/staria-300x200.webp" alt="">
+            </div>
             <h3>Hyundai Staria</h3>
-            <p><i style="color: white;" class='fas fa-user-alt'></i> 7  <i class="fas fa-briefcase"></i> 10</p>
+            <p><i class='fas fa-user-alt'></i> 7  <i class="fas fa-briefcase"></i> 10</p>
           </div>
           <div class="v-card">
-            <img src="img/GMC-Yukon-2024-Umrah-Taxi-Service-300x163.webp" alt="">
+            <div>
+              <img src="img/GMC-Yukon-2024-Umrah-Taxi-Service-300x163.webp" alt="">
+            </div>
             <h3>GMC - 2024</h3>
-            <p><i style="color: white;" class='fas fa-user-alt'></i> 7 <i class="fas fa-briefcase"></i> 8</p>
+            <p><i class='fas fa-user-alt'></i> 7 <i class="fas fa-briefcase"></i> 8</p>
           </div>
           <div class="v-card">
-            <img src="img/Toyota-HiAce-300x178.webp" alt="">
+            <div>
+              <img src="img/Toyota-HiAce-300x178.webp" alt="">
+            </div>
             <h3>Toyota HIACE</h3>
-            <p><i style="color: white;" class='fas fa-user-alt'></i> 11 <i class="fas fa-briefcase"></i> 10</p>
+            <p><i  class='fas fa-user-alt'></i> 11 <i class="fas fa-briefcase"></i> 10</p>
           </div>
           <div class="v-card">
-            <img src="img/coaster-300x188.webp" alt="">
+            <div>
+              <img src="img/coaster-300x188.webp" alt="">
+            </div>
             <h3>Coaster Saloon</h3>
-            <p><i style="color: white;" class='fas fa-user-alt'></i> 15 <i class="fas fa-briefcase"></i> 10</p>
+            <p><i  class='fas fa-user-alt'></i> 15 <i class="fas fa-briefcase"></i> 10</p>
           </div>
         </div>
       </div>
@@ -125,6 +135,30 @@
   border: 1px solid black;
   text-align: center;
   border-radius: 20px;
+  padding: 20px;
+  display: grid;
+}
+
+.v-card img {
+  height: 200px;
+}
+
+@media (max-width: 768px) {
+  .v-card {
+    padding: 5px;
+  }
+  .v-card img {
+    height: auto;
+  }
+}
+
+.v-card h3 {
+  font-weight: 700;
+}
+
+.v-card p {
+  font-weight: 500;
+  color: rgb(116, 116, 116);
 }
 
 #card-container {
