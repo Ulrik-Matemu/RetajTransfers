@@ -19,6 +19,7 @@
   left: 500px;
   z-index: 9999;
   top: 60px;
+
 }
 
 @media (max-width: 768px) {
@@ -234,15 +235,20 @@
 }
 
 .vehicle-types {
-  position: absolute;
-  top: 680px;
+  position: relative;
+  top: 50px;
+}
+
+@media (min-width: 769px) {
+  .vehicle-types {
+    top: 680px;
+  }
 }
 
 .vehicle-types h2 {
   text-align: center;
-  font-size: 42px;
-  margin-bottom: 50px;
-  font-weight: 800;
+  font-size: 40px;
+  padding: 10px 0;
 }
 
 .vehicle-container {
@@ -303,11 +309,13 @@
   .vehicle img {
     height: auto;
   }
+
+
 }
 
 @media (min-width: 370px) and (max-width: 768px) {
   .vehicle-types {
-    top: 800px;
+    top: 100px;
   }
 }
 
@@ -317,7 +325,7 @@
 
 .footer {
   position: relative;
-  bottom: -1500px;
+  bottom: -1150px;
   background-color: black;
   padding-bottom: 100px;
   border-top-left-radius: 25px;
@@ -415,7 +423,7 @@
 
 .why {
   position: absolute;
-  top: 1000px;
+  top: 1100px;
   text-align: center;
   padding: 100px 120px;
 }
@@ -450,27 +458,33 @@
   }
 
   .footer {
-    top: 1600px;
+    top: 1200px;
   }
 }
 
 @media (max-width: 1024px) and (min-width: 769px) {
   .footer {
-    top: 1700px;
+    top: 1170px;
   }
 }
 
 @media (max-width: 320px) {
   .footer {
-    top: 1800px;
+    top: 1360px;
   }
+}
+
+@media (max-width: 360px) {
+  .why {
+    top: 1160px;
+}
 }
 
 @media (max-width: 600px) and (min-width: 361px) {
   .why {
-    top: 1600px;
+    top: 1260px;
   }
   .footer {
-    top: 1700px;
+    top: 930px;
   }
 }

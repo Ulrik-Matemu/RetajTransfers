@@ -6,7 +6,7 @@
 
 
 /* Navbar Styles */
-@media (max-width: 768px) {
+@media (max-width: 830px) {
   .navbar {
     width: 97%;
   }
@@ -121,7 +121,7 @@
   }
 
   /* Responsive Styles */
-  @media (max-width: 768px) {
+  @media (max-width: 830px) {
     nav {
       height: 60px;
     } 

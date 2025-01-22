@@ -64,34 +64,120 @@
     <section class="vehicle-types">
       <h2>Pick your desired ride</h2>
       
-      <div class="vehicle-container">
-        <div class="vehicle">
-          <img src="img/Camry-p-300x141 (1).webp" alt="">
-          <h3>Sedan</h3>
-          <p><i style="color: white;" class='fas fa-user-alt'></i> 4 <i class="fas fa-briefcase"></i> 3</p>
-        </div>
-        <div class="vehicle">
-          <img src="img/staria-300x200.webp" alt="">
-          <h3>Hyundai Staria</h3>
-          <p><i style="color: white;" class='fas fa-user-alt'></i> 7  <i class="fas fa-briefcase"></i> 10</p>
-        </div>
-        <div class="vehicle">
-          <img src="img/GMC-Yukon-2024-Umrah-Taxi-Service-300x163.webp" alt="">
-          <h3>GMC - 2024</h3>
-          <p><i style="color: white;" class='fas fa-user-alt'></i> 7 <i class="fas fa-briefcase"></i> 8</p>
-        </div>
-        <div class="vehicle">
-          <img src="img/Toyota-HiAce-300x178.webp" alt="">
-          <h3>Toyota HIACE</h3>
-          <p><i style="color: white;" class='fas fa-user-alt'></i> 11 <i class="fas fa-briefcase"></i> 10</p>
-        </div>
-        <div class="vehicle">
-          <img src="img/coaster-300x188.webp" alt="">
-          <h3>Coaster Saloon</h3>
-          <p><i style="color: white;" class='fas fa-user-alt'></i> 15 <i class="fas fa-briefcase"></i> 10</p>
+      <div class="vehicle-cards">
+        <div id="card-container">
+          <div class="v-card">
+            <img src="img/Camry-p-300x141 (1).webp" alt="">
+            <h3>Sedan</h3>
+            <p><i style="color: white;" class='fas fa-user-alt'></i> 4 <i class="fas fa-briefcase"></i> 3</p>
+          </div>
+          <div class="v-card">
+            <img src="img/staria-300x200.webp" alt="">
+            <h3>Hyundai Staria</h3>
+            <p><i style="color: white;" class='fas fa-user-alt'></i> 7  <i class="fas fa-briefcase"></i> 10</p>
+          </div>
+          <div class="v-card">
+            <img src="img/GMC-Yukon-2024-Umrah-Taxi-Service-300x163.webp" alt="">
+            <h3>GMC - 2024</h3>
+            <p><i style="color: white;" class='fas fa-user-alt'></i> 7 <i class="fas fa-briefcase"></i> 8</p>
+          </div>
+          <div class="v-card">
+            <img src="img/Toyota-HiAce-300x178.webp" alt="">
+            <h3>Toyota HIACE</h3>
+            <p><i style="color: white;" class='fas fa-user-alt'></i> 11 <i class="fas fa-briefcase"></i> 10</p>
+          </div>
+          <div class="v-card">
+            <img src="img/coaster-300x188.webp" alt="">
+            <h3>Coaster Saloon</h3>
+            <p><i style="color: white;" class='fas fa-user-alt'></i> 15 <i class="fas fa-briefcase"></i> 10</p>
+          </div>
         </div>
       </div>
     </section>
+ 
+    <style>
+.vehicle-cards {
+  display: flex;
+  justify-content: center;
+}
+
+      #card-container {
+  display: flex;
+  flex-direction: row; /* Horizontal layout */
+  width: 100%;
+  scroll-snap-type: x mandatory; /* Horizontal snap scrolling */
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  margin: 20px 150px;
+  border: 1px solid black;
+  border-radius: 20px;
+  background-color: rgb(0, 0, 0);
+}
+
+.v-card {
+  margin: 20px;
+  flex: 0 0 50vw; /* Full viewport width */
+  scroll-snap-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  background-color: rgb(14, 14, 14);
+  color: white;
+  border: 1px solid black;
+  text-align: center;
+  border-radius: 20px;
+}
+
+#card-container {
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+}
+
+#card-container::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Edge */
+}
+
+@media (max-width: 768px) {
+  #card-container {
+    margin: 20px;
+  }
+}
+
+    </style>
+
+    <script>
+ const container = document.getElementById("card-container");
+const cards = document.querySelectorAll(".v-card");
+let scrollInterval;
+
+// Duplicate cards for seamless looping
+cards.forEach((card) => {
+  const clone = card.cloneNode(true);
+  container.appendChild(clone);
+});
+
+// Autoplay function
+function startAutoplay() {
+  scrollInterval = setInterval(() => {
+    const scrollPosition = container.scrollLeft;
+    const cardWidth = container.clientWidth;
+    const totalWidth = container.scrollWidth - cardWidth;
+
+    if (scrollPosition >= totalWidth - 1) {
+      container.scrollLeft = 0; // Reset to the start for looping
+    } else {
+      container.scrollLeft += cardWidth; // Scroll to the next card
+    }
+  }, 2000); // Change the interval time (3000ms = 3 seconds)
+}
+
+// Start autoplay
+startAutoplay();
+
+// Optional: Pause autoplay on hover
+container.addEventListener("mouseenter", () => clearInterval(scrollInterval));
+container.addEventListener("mouseleave", startAutoplay);
+
+    </script>
 
     <section class="why">
       <h2>Why Choose Retaj Transfers' Service for Your Hajj and Umrah?</h2>
