@@ -223,6 +223,8 @@
     .mobile-hero-img {
         display: block;
         width: 100%;
+        opacity: 1;
+    filter: brightness(0.5);
         border-bottom-left-radius: 25px;
         border-bottom-right-radius: 25px;
     }
