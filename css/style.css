@@ -238,19 +238,19 @@
 
 .vehicle-types {
   position: relative;
-  top: 50px;
+  top: 560px;
+  background-color: #f7f7f7;
+  z-index: -3;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
 }
 
-@media (min-width: 769px) {
-  .vehicle-types {
-    top: 680px;
-  }
-}
+
 
 .vehicle-types h2 {
   text-align: center;
   font-size: 40px;
-  padding: 10px 10px;
+  padding: 80px 10px 10px 10px;
 }
 
 .vehicle-container {
@@ -315,11 +315,7 @@
 
 }
 
-@media (min-width: 370px) and (max-width: 768px) {
-  .vehicle-types {
-    top: 100px;
-  }
-}
+
 
 .main {
   flex: 1;
@@ -471,41 +467,13 @@
 
 @media (max-width: 768px) {
   .why {
-    top: 1400px;
     padding: 50px 25px;
   }
-
-  .footer {
-    top: 1200px;
-  }
 }
 
-@media (max-width: 1024px) and (min-width: 769px) {
-  .footer {
-    top: 1310px;
-  }
-}
 
-@media (max-width: 320px) {
-  .footer {
-    top: 1360px;
-  }
-}
 
-@media (max-width: 360px) {
-  .why {
-    top: 1160px;
-}
-}
 
-@media (max-width: 600px) and (min-width: 361px) {
-  .why {
-    top: 1260px;
-  }
-  .footer {
-    top: 930px;
-  }
-}
 
 
 .why-details img {
@@ -520,5 +488,119 @@
 @media (max-width: 768px) {
   .why .why-details {
     display: block;
+  }
+}
+
+
+/* TODO: Improve your responsiveness code!!! */
+@media (max-width: 830px) {
+  .footer {
+    bottom: -1500px;
+  }
+}
+
+@media (max-width: 768px) {
+  .vehicle-types {
+    top: -20px;
+    background-color: #f7f7f7;
+    z-index: -1;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+  }
+  .vehicle-types h2 {
+    padding-top: 90px;
+  }
+
+  .why {
+    top: 1840px;
+  }
+
+  .footer {
+    bottom: -710px;
+  }
+}
+
+@media (max-width: 475px) {
+  .vehicle-types {
+    top: -50px;
+    background-color: #f7f7f7;
+    z-index: -1;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+  }
+  .vehicle-types h2 {
+    padding-top: 130px;
+  }
+  .why {
+    top: 1360px;
+  }
+  .footer {
+    bottom: -945px;
+  }
+}
+
+
+@media (max-width: 375px) {
+  .vehicle-types {
+    top: -60px;
+    background-color: #f7f7f7;
+    z-index: -1;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+  }
+  .vehicle-types h2 {
+    padding-top: 130px;
+  }
+  .why {
+    top: 1230px;
+}
+.footer {
+  bottom: -980px;
+} 
+}
+
+
+@media (max-width: 320px) {
+  .vehicle-types {
+    top: -20px;
+    background-color: #f7f7f7;
+    z-index: -1;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+  }
+  .vehicle-types h2  {
+    padding-top: 110px;
+  }
+  .why {
+    top: 1120px;
+  }
+  .footer {
+    bottom: -1080px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .why p {
+    line-height: 2;
+  }
+}
+
+@media (min-width: 1600px) {
+  .why p {
+    line-height: 3;
+    font-size: 25px;
+  }
+  .hero-details p {
+    font-size: 25px;
+  }
+}
+
+@media (min-width: 2000px) {
+  .why p {
+    font-size: 30px;
+    line-height: 4;
+  }
+  .hero-details p {
+    font-size: 30px;
   }
 }
