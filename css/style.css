@@ -327,11 +327,26 @@
 
 .footer {
   position: relative;
-  bottom: -1150px;
+  bottom: -1350px;
   background-color: black;
   padding-bottom: 100px;
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
+}
+
+
+
+
+@media (min-width: 1600px) {
+  .footer {
+    bottom: -1500px;
+  }
+}
+
+@media (min-width: 2000px) {
+  .footer {
+    bottom: -1800px;
+  }
 }
 
 .footer-containers {
@@ -467,7 +482,7 @@
 
 @media (max-width: 1024px) and (min-width: 769px) {
   .footer {
-    top: 1170px;
+    top: 1310px;
   }
 }
 
@@ -489,5 +504,21 @@
   }
   .footer {
     top: 930px;
+  }
+}
+
+
+.why-details img {
+  width: 50%;
+  padding: 20px;
+}
+
+.why .why-details {
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  .why .why-details {
+    display: block;
   }
 }
