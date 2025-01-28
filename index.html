@@ -42,7 +42,218 @@
           </div>
         </li>
         <li><a href="#rides">Rides</a></li>
-        <li><a href="#">Pricing</a></li>
+        <li><a class="dropdown" id="dropdown" onclick="displayPricingDropdown()" style="background-color: transparent;">Pricing <i class="fa fa-angle-down"></i></a>
+          <div class="dropdown-content pricing-d" id="pricing-dropdown-content">
+           <div class="pricing" style="padding: 10px;">
+            <style>
+              @media (max-width: 830px) {
+                .pricing-d {
+                  top: 5px;
+                }
+                .pricing {
+                position: relative;
+                top: 0;
+                text-align: left;
+              }
+              }
+
+              .pricing-container .close-btn2 {
+                background-color: transparent;
+                height: 1px;
+                width: 0;
+                position: relative;
+                left: 90%;
+                color: red;
+              }
+
+              @media (max-width: 320px) {
+                .pricing-container .close-btn2 {
+                  padding: 2px;
+                  
+                }
+              }
+
+              .pricing-container .close-btn2:hover {
+                background-color: transparent;
+              }
+              .pricing-container {
+                max-width: 400px;
+                margin: 5px auto;
+                padding: 5px;
+                background: rgb(14, 14, 14);
+                border-radius: 15px;
+                color: white;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+              }
+
+          
+              .pricing-container h1 {
+                text-align: center;
+                margin-bottom: 20px;  
+              }
+          
+              .pricing-container label {
+                display: block;
+                margin-bottom: 8px;
+                font-weight: bold;
+              }
+
+           
+          
+              .pricing-container select, .pricing-container button, .pricing-container input {
+                width: 100%;
+                padding: 10px;
+                font-size: 18px;
+                font-weight: 400;
+                margin-bottom: 5px;
+                border: 1px solid #131313;;
+                border-radius: 12px;
+                color: white;
+                background-color: #131313;
+              }
+
+              .pricing-container select {
+                background-color: #0c0c0c;
+                border-radius: 12px;
+              }
+
+              .pricing-container select option:disabled {
+                color: #65657b;
+              }
+          
+              .pricing-container button {
+                background-color: #007bff;
+                color: white;
+                border: none;
+                cursor: pointer;
+              }
+          
+              .pricing-container button:hover {
+                background-color: #0056b3;
+              }
+          
+              .result {
+                margin-top: 10px;
+                padding: 5px;
+                background-color: #f0f8ff;
+                border: 1px solid #ddd;
+                border-radius: 12px;
+                color: black;
+              }
+              #night-surcharge {
+                height: 20px;
+                width: 5%;
+                border-radius: 63px;
+                margin-right: 10px;
+              }
+            </style>
+          
+            <div class="pricing-container">
+              <button type="button" class="close-btn2" onclick="displayPricingDropdown()"><i class="fa fa-close"></i></button>
+              <h1 style="font-weight: 500; font-size: 15px;"><b style="font-weight: 900; font-size: 25px;">QuickFare</b> by Retaj Transfers</h1>
+          
+              <form id="calculator-form">
+                <!-- Pickup Location -->
+                <div>
+                  <select id="pickup" required>
+                    <option value="" disabled selected>Pickup Location</option>
+                    <option value="location1">Masjid al-Haram</option>
+                    <option value="location2">King Abdulaziz International Airport</option>
+                    <option value="location3">Al-Nour Mall</option>
+                    <option value="location4">Mount Arafat</option>
+                  </select>
+                </div>
+          
+                <!-- Drop-off Location -->
+                <div>
+                  <select id="dropoff" required>
+                    <option value="" disabled selected>Drop-off Location</option>
+                    <option value="location1">Masjid al-Haram</option>
+                    <option value="location2">King Abdulaziz International Airport</option>
+                    <option value="location3">Al-Nour Mall</option>
+                    <option value="location4">Mount Arafat</option>
+                  </select>
+                </div>
+          
+                <!-- Vehicle Type -->
+                <div>
+                  <select id="vehicle-type" required>
+                    <option value="" disabled selected>Vehicle Type</option>
+                    <option value="economy">Economy</option>
+                    <option value="family">Family Van</option>
+                    <option value="luxury">Luxury</option>
+                  </select>
+                </div>
+          
+                <!-- Trip Type -->
+                <div>
+                  <select id="trip-type" required>
+                    <option value="" disabled selected>Trip Type</option>
+                    <option value="local">Local</option>
+                    <option value="airport">Airport Transfer</option>
+                    <option value="outstation">Outstation</option>
+                  </select>
+                </div>
+          
+                <!-- Waiting Time -->
+                <div>
+                  <input type="number" id="waiting-time" placeholder="Waiting Time in minutes (Optional)">
+                </div>
+          
+                <!-- Night Surcharge -->
+                <div style="display: flex;">
+                  <input type="checkbox" id="night-surcharge">
+                  <label for="night-surcharge">Night Surcharge (20%)</label>
+                </div>
+          
+                <button type="button" id="calculate-btn">Calculate Fare</button>
+              </form>
+          
+              <!-- Result -->
+              <div id="result" class="result" style="display: none;">
+                <h2>Estimated Fare: <span id="fare"></span></h2>
+                <p id="fare-breakdown"></p>
+              </div>
+            </div>
+          
+            <script>
+              const distances = {
+                location1: { location2: 95, location3: 8, location4: 25 },
+                location2: { location1: 95, location3: 87, location4: 120 },
+                location3: { location1: 8, location2: 87, location4: 30 },
+                location4: { location1: 25, location2: 120, location3: 30 }
+              };
+          
+              document.getElementById('calculate-btn').addEventListener('click', () => {
+                const pickup = document.getElementById('pickup').value;
+                const dropoff = document.getElementById('dropoff').value;
+                const vehicleType = document.getElementById('vehicle-type').value;
+                const tripType = document.getElementById('trip-type').value;
+                const waitingTime = parseFloat(document.getElementById('waiting-time').value) || 0;
+                const nightSurcharge = document.getElementById('night-surcharge').checked;
+          
+                if (!pickup || !dropoff || pickup === dropoff) {
+                  alert('Please select valid and different locations for pickup and drop-off.');
+                  return;
+                }
+          
+                const distance = distances[pickup][dropoff];
+          
+                let baseFare = tripType === 'local' ? 5 : 10;
+                let perKmRate = vehicleType === 'economy' ? 0.5 : vehicleType === 'family' ? 0.75 : 1.0;
+                let waitingRate = 0.2; // $0.20 per minute
+          
+                let fare = baseFare + (distance * perKmRate) + (waitingTime * waitingRate);
+                if (nightSurcharge) fare *= 1.2; // Add 20% for night surcharge
+          
+                document.getElementById('fare').textContent = `$${fare.toFixed(2)}`;
+                document.getElementById('fare-breakdown').textContent = `Base Fare: $${baseFare}, Distance: ${distance} km @ $${perKmRate}/km, Waiting: $${(waitingTime * waitingRate).toFixed(2)}, Night Surcharge: ${nightSurcharge ? 'Applied' : 'Not Applied'}`;
+                document.getElementById('result').style.display = 'block';
+              });
+            </script>
+           </div>
+          </div>
+        </li>
       </ul>
     </div>
     <div class="nav-button">

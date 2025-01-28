@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Section Modal</title>
+  <style>
+    /* Basic Reset */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    section {
+      margin: 20px;
+      padding: 20px;
+      border: 1px solid #ddd;
+    }
+
+    /* Modal Wrapper */
+    .modal-wrapper {
+      position: relative; /* Relative positioning for the parent section */
+    }
+
+    /* Modal Content */
+    .modal {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 10;
+      background: #fff;
+      border: 1px solid #ddd;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      display: none;
+    }
+
+    .modal-header {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .modal-body {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .close-button {
+      background: #e74c3c;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 8px 12px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    .close-button:hover {
+      background: #c0392b;
+    }
+  </style>
+</head>
+<body>
+  <!-- Section 1 -->
+  <section>
+    <h2>Section 1</h2>
+    <p>This is the first section. Click the button to open the modal here.</p>
+    <div class="modal-wrapper">
+      <button class="open-modal-btn">Open Modal</button>
+      <div class="modal">
+        <div class="modal-header">Section 1 Modal</div>
+        <div class="modal-body">This modal is specific to Section 1.</div>
+        <button class="close-button">Close</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2 -->
+  <section>
+    <h2>Section 2</h2>
+    <p>This is the second section. Click the button to open the modal here.</p>
+    <div class="modal-wrapper">
+      <button class="open-modal-btn">Open Modal</button>
+      <div class="modal">
+        <div class="modal-header">Section 2 Modal</div>
+        <div class="modal-body">This modal is specific to Section 2.</div>
+        <button class="close-button">Close</button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Select all open and close buttons
+    const openButtons = document.querySelectorAll('.open-modal-btn');
+    const closeButtons = document.querySelectorAll('.close-button');
+
+    openButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const modal = button.nextElementSibling; // Find the modal next to the button
+        modal.style.display = 'block'; // Show the modal
+      });
+    });
+
+    closeButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const modal = button.parentElement; // Find the modal containing the button
+        modal.style.display = 'none'; // Hide the modal
+      });
+    });
+  </script>
+</body>
+</html>

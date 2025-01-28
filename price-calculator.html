@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Umra Taxi Service Calculator</title>
+  <style>
+
+    .pricing-container {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .pricing-container h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .pricing-container label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    .pricing-container select, button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    .pricing-container button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .pricing-container button:hover {
+      background-color: #0056b3;
+    }
+
+    .result {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #f0f8ff;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+  </style>
+
+  <div class="pricing-container">
+    <h1>Umra Taxi Fare Calculator</h1>
+
+    <form id="calculator-form">
+      <!-- Pickup Location -->
+      <div>
+        <label for="pickup">Pickup Location</label>
+        <select id="pickup" required>
+          <option value="" disabled selected>Select Pickup Location</option>
+          <option value="location1">Masjid al-Haram</option>
+          <option value="location2">King Abdulaziz International Airport</option>
+          <option value="location3">Al-Nour Mall</option>
+          <option value="location4">Mount Arafat</option>
+        </select>
+      </div>
+
+      <!-- Drop-off Location -->
+      <div>
+        <label for="dropoff">Drop-off Location</label>
+        <select id="dropoff" required>
+          <option value="" disabled selected>Select Drop-off Location</option>
+          <option value="location1">Masjid al-Haram</option>
+          <option value="location2">King Abdulaziz International Airport</option>
+          <option value="location3">Al-Nour Mall</option>
+          <option value="location4">Mount Arafat</option>
+        </select>
+      </div>
+
+      <!-- Vehicle Type -->
+      <div>
+        <label for="vehicle-type">Vehicle Type</label>
+        <select id="vehicle-type" required>
+          <option value="economy">Economy</option>
+          <option value="family">Family Van</option>
+          <option value="luxury">Luxury</option>
+        </select>
+      </div>
+
+      <!-- Trip Type -->
+      <div>
+        <label for="trip-type">Trip Type</label>
+        <select id="trip-type" required>
+          <option value="local">Local</option>
+          <option value="airport">Airport Transfer</option>
+          <option value="outstation">Outstation</option>
+        </select>
+      </div>
+
+      <!-- Waiting Time -->
+      <div>
+        <label for="waiting-time">Waiting Time (minutes)</label>
+        <input type="number" id="waiting-time" placeholder="Optional">
+      </div>
+
+      <!-- Night Surcharge -->
+      <div>
+        <input type="checkbox" id="night-surcharge">
+        <label for="night-surcharge">Night Surcharge (20%)</label>
+      </div>
+
+      <button type="button" id="calculate-btn">Calculate Fare</button>
+    </form>
+
+    <!-- Result -->
+    <div id="result" class="result" style="display: none;">
+      <h2>Estimated Fare: <span id="fare"></span></h2>
+      <p id="fare-breakdown"></p>
+    </div>
+  </div>
+
+  <script>
+    const distances = {
+      location1: { location2: 95, location3: 8, location4: 25 },
+      location2: { location1: 95, location3: 87, location4: 120 },
+      location3: { location1: 8, location2: 87, location4: 30 },
+      location4: { location1: 25, location2: 120, location3: 30 }
+    };
+
+    document.getElementById('calculate-btn').addEventListener('click', () => {
+      const pickup = document.getElementById('pickup').value;
+      const dropoff = document.getElementById('dropoff').value;
+      const vehicleType = document.getElementById('vehicle-type').value;
+      const tripType = document.getElementById('trip-type').value;
+      const waitingTime = parseFloat(document.getElementById('waiting-time').value) || 0;
+      const nightSurcharge = document.getElementById('night-surcharge').checked;
+
+      if (!pickup || !dropoff || pickup === dropoff) {
+        alert('Please select valid and different locations for pickup and drop-off.');
+        return;
+      }
+
+      const distance = distances[pickup][dropoff];
+
+      let baseFare = tripType === 'local' ? 5 : 10;
+      let perKmRate = vehicleType === 'economy' ? 0.5 : vehicleType === 'family' ? 0.75 : 1.0;
+      let waitingRate = 0.2; // $0.20 per minute
+
+      let fare = baseFare + (distance * perKmRate) + (waitingTime * waitingRate);
+      if (nightSurcharge) fare *= 1.2; // Add 20% for night surcharge
+
+      document.getElementById('fare').textContent = `$${fare.toFixed(2)}`;
+      document.getElementById('fare-breakdown').textContent = `Base Fare: $${baseFare}, Distance: ${distance} km @ $${perKmRate}/km, Waiting: $${(waitingTime * waitingRate).toFixed(2)}, Night Surcharge: ${nightSurcharge ? 'Applied' : 'Not Applied'}`;
+      document.getElementById('result').style.display = 'block';
+    });
+  </script>
+</body>
+</html>
