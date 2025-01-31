@@ -20,6 +20,10 @@
 </head>
 
 <body>
+  <div id="preloader">
+    <div class="loader"></div>
+  </div>
+  
   <nav class="navbar">
     <div class="brand-title">Retaj Transfers</div>
     <a href="#" class="mobile-book-button"><button onclick="toggleForm()">BOOK NOW</button></a>
@@ -646,6 +650,16 @@
     .catch(error => alert("Error sending request"));
 });
 
+  </script>
+  <script>
+    window.addEventListener("load", function () {
+      const preloader = document.getElementById("preloader");
+      preloader.classList.add("hidden");
+      
+      setTimeout(() => {
+        preloader.style.display = "none";
+      }, 500); // Wait for transition effect
+    });
   </script>
   
 </body>
