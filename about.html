@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Retaj Transfers</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+<body>
+    <nav class="navbar">
+        <div class="brand-title">Retaj Transfers</div>
+        <a href="#" class="mobile-book-button"><button onclick="toggleForm()">BOOK NOW</button></a>
+        <a href="javascript:void(0);" class="toggle-button" onclick="toggleMenu()">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </a>
+        <div class="navbar-links">
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a class="dropdown" id="dropdown" onclick="displayDropdown()">Contact <i class="fa fa-angle-down"></i></a>
+              <div class="dropdown-content" id="dropdown-content">
+                <ul>
+                  <li><a href=""><i class="	far fa-comments" style="margin-right: 15px;"></i>Direct Chat </a></li>
+                  <li><a href=""><i class="fas fa-phone" style="margin-right: 15px;"></i>Call </a></li>
+                  <li><a href=""><i class="far fa-envelope-open" style="margin-right: 15px;"></i>Email</a></li>
+                </ul>
+              </div>
+            </li>
+            <li><a href="#rides">Rides</a></li>
+            <li><a class="dropdown" id="dropdown" onclick="displayPricingDropdown()" style="background-color: transparent;">Pricing <i class="fa fa-angle-down"></i></a>
+              <div class="dropdown-content pricing-d" id="pricing-dropdown-content">
+               <div class="pricing" style="padding: 10px;">
+                <style>
+                  @media (max-width: 830px) {
+                    .pricing-d {
+                      top: 5px;
+                    }
+                    .pricing {
+                    position: relative;
+                    top: 0;
+                    text-align: left;
+                  }
+                  }
+    
+                  .pricing-container .close-btn2 {
+                    background-color: transparent;
+                    height: 1px;
+                    width: 0;
+                    position: relative;
+                    left: 90%;
+                    color: red;
+                  }
+    
+                  @media (max-width: 320px) {
+                    .pricing-container .close-btn2 {
+                      padding: 2px;
+                      
+                    }
+                  }
+    
+                  .pricing-container .close-btn2:hover {
+                    background-color: transparent;
+                  }
+                  .pricing-container {
+                    max-width: 400px;
+                    margin: 5px auto;
+                    padding: 5px;
+                    background: rgb(14, 14, 14);
+                    border-radius: 15px;
+                    color: white;
+                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                  }
+    
+              
+                  .pricing-container h1 {
+                    text-align: center;
+                    margin-bottom: 20px;  
+                  }
+              
+                  .pricing-container label {
+                    display: block;
+                    margin-bottom: 8px;
+                    font-weight: bold;
+                  }
+    
+               
+              
+                  .pricing-container select, .pricing-container button, .pricing-container input {
+                    width: 100%;
+                    padding: 10px;
+                    font-size: 18px;
+                    font-weight: 400;
+                    margin-bottom: 8px;
+                    border: 1px solid #303030;;
+                    border-radius: 12px;
+                    color: white;
+                    background-color: #131313;
+                  }
+    
+                  .pricing-container select {
+                    background-color: #0c0c0c;
+                    border-radius: 12px;
+                  }
+    
+                  .pricing-container select option:disabled {
+                    color: #65657b;
+                  }
+              
+                  .pricing-container button {
+                    background-color: #007bff;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                  }
+              
+                  .pricing-container button:hover {
+                    background-color: #0056b3;
+                  }
+              
+                  .result {
+                    margin-top: 10px;
+                    padding: 5px;
+                    background-color: #f0f8ff;
+                    border: 1px solid #ddd;
+                    border-radius: 12px;
+                    color: black;
+                  }
+                  #night-surcharge {
+                    height: 20px;
+                    width: 5%;
+                    border-radius: 63px;
+                    margin-right: 10px;
+                  }
+                </style>
+              
+                <div class="pricing-container">
+                  <button type="button" class="close-btn2" onclick="displayPricingDropdown()"><i class="fa fa-close"></i></button>
+                  <h1 style="font-weight: 500; font-size: 15px;"><b style="font-weight: 900; font-size: 25px;">QuickFare</b> by Retaj Transfers</h1>
+              
+                  <form id="calculator-form">
+                    <!-- Pickup Location -->
+                    <div>
+                      <select id="pickup" required>
+                        <option value="" disabled selected>Pickup Location</option>
+                        <option value="location1">Masjid al-Haram</option>
+                        <option value="location2">King Abdulaziz International Airport</option>
+                        <option value="location3">Al-Nour Mall</option>
+                        <option value="location4">Mount Arafat</option>
+                      </select>
+                    </div>
+              
+                    <!-- Drop-off Location -->
+                    <div>
+                      <select id="dropoff" required>
+                        <option value="" disabled selected>Drop-off Location</option>
+                        <option value="location1">Masjid al-Haram</option>
+                        <option value="location2">King Abdulaziz International Airport</option>
+                        <option value="location3">Al-Nour Mall</option>
+                        <option value="location4">Mount Arafat</option>
+                      </select>
+                    </div>
+              
+                    <!-- Vehicle Type -->
+                    <div>
+                      <select id="vehicle-type" required>
+                        <option value="" disabled selected>Vehicle Type</option>
+                        <option value="economy">Economy</option>
+                        <option value="family">Family Van</option>
+                        <option value="luxury">Luxury</option>
+                      </select>
+                    </div>
+              
+                    <!-- Trip Type -->
+                    <div>
+                      <select id="trip-type" required>
+                        <option value="" disabled selected>Trip Type</option>
+                        <option value="local">Local</option>
+                        <option value="airport">Airport Transfer</option>
+                        <option value="outstation">Outstation</option>
+                      </select>
+                    </div>
+              
+                    <!-- Waiting Time -->
+                    <div>
+                      <input type="number" id="waiting-time" placeholder="Waiting Time in minutes (Optional)">
+                    </div>
+              
+                    <!-- Night Surcharge -->
+                    <div style="display: flex;">
+                      <input type="checkbox" id="night-surcharge">
+                      <label for="night-surcharge">Night Surcharge (20%)</label>
+                    </div>
+              
+                    <button type="button" id="calculate-btn">Calculate Fare</button>
+                  </form>
+              
+                  <!-- Result -->
+                  <div id="result" class="result" style="display: none;">
+                    <h2>Estimated Fare: <span id="fare"></span></h2>
+                    <p id="fare-breakdown"></p>
+                  </div>
+                </div>
+              
+                <script>
+                  const distances = {
+                    location1: { location2: 95, location3: 8, location4: 25 },
+                    location2: { location1: 95, location3: 87, location4: 120 },
+                    location3: { location1: 8, location2: 87, location4: 30 },
+                    location4: { location1: 25, location2: 120, location3: 30 }
+                  };
+              
+                  document.getElementById('calculate-btn').addEventListener('click', () => {
+                    const pickup = document.getElementById('pickup').value;
+                    const dropoff = document.getElementById('dropoff').value;
+                    const vehicleType = document.getElementById('vehicle-type').value;
+                    const tripType = document.getElementById('trip-type').value;
+                    const waitingTime = parseFloat(document.getElementById('waiting-time').value) || 0;
+                    const nightSurcharge = document.getElementById('night-surcharge').checked;
+              
+                    if (!pickup || !dropoff || pickup === dropoff) {
+                      alert('Please select valid and different locations for pickup and drop-off.');
+                      return;
+                    }
+              
+                    const distance = distances[pickup][dropoff];
+              
+                    let baseFare = tripType === 'local' ? 5 : 10;
+                    let perKmRate = vehicleType === 'economy' ? 0.5 : vehicleType === 'family' ? 0.75 : 1.0;
+                    let waitingRate = 0.2; // $0.20 per minute
+              
+                    let fare = baseFare + (distance * perKmRate) + (waitingTime * waitingRate);
+                    if (nightSurcharge) fare *= 1.2; // Add 20% for night surcharge
+              
+                    document.getElementById('fare').textContent = `$${fare.toFixed(2)}`;
+                    document.getElementById('fare-breakdown').textContent = `Base Fare: $${baseFare}, Distance: ${distance} km @ $${perKmRate}/km, Waiting: $${(waitingTime * waitingRate).toFixed(2)}, Night Surcharge: ${nightSurcharge ? 'Applied' : 'Not Applied'}`;
+                    document.getElementById('result').style.display = 'block';
+                  });
+                </script>
+               </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-button">
+          <button onclick="toggleForm()"><a href="#formContainer">BOOK NOW</a></button>
+        </div>
+      </nav>
+
+      <section class="about-us" style="position: relative; top: 150px; text-align: center; font-size: 30px; font-weight: 700;">
+        <p>This Page is currently under construction, go back <a href="index.html">home.</a></p>
+      </section>
+
+      <div class="overlay"></div>
+      <div class="form-container" id="formContainer">
+        <div class="form">
+          <button class="close-form-button" onclick="toggleForm()" aria-label="Close form">X</button>
+          <h2 class="title">Get Quote</h2>
+          <div class="input-container ic1">
+            <input id="firstname" class="input" type="text" placeholder=" " required />
+            <div class="cut"></div>
+            <label for="firstname" class="placeholder">Full name</label>
+          </div>
+          <div class="input-container ic2">
+            <input id="country" class="input" type="text" placeholder=" " required />
+            <div class="cut"></div>
+            <label for="country" class="placeholder">Country</label>
+          </div>
+          <div class="input-container ic2">
+            <input id="phone" class="input" type="tel" placeholder=" " required />
+            <div class="cut cut-short"></div>
+            <label for="phone" class="placeholder">Phone Number<b style="font-size: 12px;"> (with country
+                code)</b></label>
+          </div>
+          <div class="input-container ic2">
+            <input id="pickup" class="input" type="text" placeholder=" " required />
+            <div class="cut cut-short"></div>
+            <label for="pickup" class="placeholder">Pickup location</label>
+          </div>
+          <div class="input-container ic2">
+            <input id="destination" class="input" type="text" placeholder=" " required />
+            <div class="cut cut-short"></div>
+            <label for="destination" class="placeholder">Destination</label>
+          </div>
+          <div>
+            <button type="submit" class="submit"><b>REQUEST FOR TAXI</b></button>
+          </div>
+        </div>
+      </div>
+  
+  
+    </div>
+
+
+
+    <section class="footer">
+        <div class="footer-containers">
+          <div class="footer-container">
+            <h2>Retaj Transfers</h2>
+            <p>We provide the best Car Service for Umrah in Saudi Arabia with the best and professional licensed drivers and
+              at very low prices.</p>
+            <button><a href="#" onclick="toggleForm()">BOOK NOW</a></button>
+          </div>
+          <div class="footer-container" id="footer-list">
+            <ul>
+              <li><a href="#">Booking</a></li>
+              <li><a href="#">Pricing</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Makkah To Madinah</a></li>
+              <li><a href="#">Jeddah To Makkah</a></li>
+            </ul>
+            <ul>
+              <li><a href="#">Terms</a></li>
+              <li><a href="#">Help Center</a></li>
+              <li><a href="#">LinkedIn</a></li>
+            </ul>
+          </div>
+        </div>
+        <p class="footer-reserved">© Retaj Transfers 2025. All rights reserved</p>
+      </section>
+      <script>
+        function toggleMenu() {
+          const navbarLinks = document.querySelector('.navbar-links');
+          navbarLinks.classList.toggle('active');
+        }
+      </script>
+      <script>
+        function toggleForm() {
+          const formContainer = document.getElementById('formContainer');
+          const overlay = document.querySelector('.overlay');
+          if (formContainer.style.display === 'none' || !formContainer.style.display) {
+            formContainer.style.display = 'block';
+            overlay.style.display = 'block';
+          } else {
+            formContainer.style.display = 'none';
+            overlay.style.display = 'none';
+          }
+        }
+    
+        document.querySelector('.overlay').addEventListener('click', toggleForm);
+      </script>
+      <script src="js/dropdown.js">
+      </script>
+</body>
+</html>
