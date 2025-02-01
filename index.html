@@ -46,8 +46,32 @@
           </div>
         </li>
         <li><a href="#rides">Rides</a></li>
-        <li><a class="dropdown" id="dropdown" onclick="displayPricingDropdown()"
-            style="background-color: transparent;">Pricing <i class="fa fa-angle-down"></i></a>
+        <li><a class="dropdown" id="dropdown" onclick=""
+            style="background-color: transparent; color: #303030;">Pricing <i class="fa fa-angle-down"></i></a>
+            <div class="not-available">
+              <p><i class="fa fa-info-circle" style="color: #202020;"></i> Pricing will be posted soon.</p>
+            </div>
+            <style>
+              .not-available {
+                position: absolute;
+                color: white;
+                border: 1px solid rgb(118, 118, 118);
+                padding: 10px;
+                background-color: black;
+                top: 55px;
+                border-radius: 10px;
+                display: none;
+              }
+              .dropdown:hover + .not-available {
+                display: block;
+              }
+
+              @media (max-width: 830px) {
+                .not-available {
+                  top: 250px;
+                }
+              }
+            </style>
           <div class="dropdown-content pricing-d" id="pricing-dropdown-content">
             <div class="pricing" style="padding: 10px;">
               <style>
